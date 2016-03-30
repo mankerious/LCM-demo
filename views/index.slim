@@ -1,0 +1,26 @@
+/*the action attribute tells the form to submit itself to the url ‘/’ and the method attribute tells it to use the POST method.*/
+form action="/" method="POST" align="left"
+    p
+    	|
+    		&nbsp;Select demo project: 
+        	<select name="projectid2" >
+          	<option value="koqyoxfhfbgfphevmwffed1sncsc97eu"> Demo: Retail Analytics</option>
+        		<option value="la84vcyhrq8jwbu4wpipw66q2sqeb923"> Demo: Good Sales</option>
+         		<option value="c9xzrxtz6py7ijhgq7jxvsoymtbm7psw"> Demo: Good Statistics</option>
+	       	</select>
+
+    p  &nbsp;Current user's Project List: 
+    select name="projectid" style="margin-left:5px"
+          GoodData.with_connection() do |client|
+          - client = GoodData.connect() 
+          - client.projects.each do |project|
+           option value="koqyoxfhfbgfphevmwffed1sncsc97eu" Demo: Retail Analytics
+          
+    /*#{@project_list}*/
+    p	&nbsp;Or enter project id:
+    input type="text" size="35" name="project" style="margin-left:5px"
+    br
+    br
+    /*Code that doesn't return a result, such as if statements or loops, are prefixed with a dash (-)*/
+    /*-prefix*/
+   	input.button type="submit" value="Next >>" style="margin-left:5px"
