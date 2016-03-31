@@ -2,23 +2,40 @@
 doctype html 
 html 
   head 
-    meta charset="utf-8" 
+   / A <meta> viewport element gives the browser instructions on how to control the page's dimensions and scaling.
+     The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+     The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.*/
+   
+   meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"
     title Lifecycle Management 
-    link rel="stylesheet" media="screen, projection" href="https://developer.gooddata.com/themes/site_themes/developer2012/css/style.css" 
+    link rel="stylesheet" media="screen, projection" href="/lcm-style.css" 
     /[if lt IE 9] 
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" 
 
-body style="background-color:white;"
-<div style="float: left;">
-img src="https://developer.gooddata.com/themes/site_themes/developer2012/img/Developer_header.png" align="left"
-</div>
-<div style="width: 960px; background-color: black; padding: 5px;">
- <p> </p>
-  <br>
-  <br>
+
+
+   img class="img" src="https://developer.gooddata.com/themes/site_themes/developer2012/img/Developer_header.png" align="left"
+   div class="header" 
+   div class="row"
+    div class="col-3"
+     h2 Provision Workspaces 
+    div class="col-9"
+     h2 align="left" &nbsp;Lifecycle Management Demo 
+    <div class="row">
+
+<div class="col-3 menu">
+<ul>
+<li>The Flight</li>
+<li>The City</li>
+<li>The Island</li>
+<li>The Food</li>
+</ul>
 </div>
 
-h2 align="left" &nbsp;Lifecycle Management Demo 
-
+<div class="col-9">
+<h1>The City</h1>
+<p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+<p>Resize the browser window to see how the content respond to the resizing.</p>
+</div>
 
 == yield
