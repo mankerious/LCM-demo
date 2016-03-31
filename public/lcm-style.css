@@ -29,6 +29,7 @@ button[disabled],input[disabled]{cursor:default}
 input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
 input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+small{font-size:75%}
 
 .row:after {
     content: "";

@@ -7,7 +7,7 @@ require 'slim'
 # reference: http://www.sitepoint.com/just-do-it-learn-sinatra-i/
 
 get '/' do 
-	@project_list=""
+#	@project_list=""
 	#get a list of projects for this user and display them
 	# GoodData.with_connection() do |client|
  #    	client.projects.each do |project|
@@ -21,14 +21,15 @@ end
 post '/' do
 
  	if params[:project].to_s == ''
- 		@project = params[:projectid]
+ 		@project_pid = params[:projectid]
  	else
- 		@project = params[:project]
+ 		@project_pid = params[:project]
 	end
 
 	client = GoodData.connect()
-	project = client.projects(@project)
+	project = client.projects(@project_pid)
 	@project_title = project.title
+
 
   	slim :project
 end
