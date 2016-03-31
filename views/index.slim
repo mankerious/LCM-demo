@@ -5,7 +5,6 @@ form action="/" method="POST" align="left"
     div class="col-3"
      p
      select name="projectid" style="margin-left:0px" 
-          GoodData.with_connection() do |client|
           - client = GoodData.connect() 
           - client.projects.each do |project|
            option value="#{project.uri}" #{project.title}    
