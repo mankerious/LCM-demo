@@ -1,22 +1,20 @@
 
 
 form action="/" method="POST" align="left"
-  body  Master project: 
+  body  &nbsp &nbsp Master project: 
   div class="row"
-    div class="col-1of3"
+    div class="col-1of2"
      body #{@project_title}
      p
      small data-toggle="tooltip" title="project id" #{@project_pid}
      p
-     select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect() 
-          - client.projects.each do |project|
-           option value="#{project.uri}" #{project.title}    
+        - @project_users=""
+        - client = GoodData.connect() 
+        - project = client.projects("#{@project_pid}")
+        - @project_users=project.users.map {|u| [u.login, u.name]}
+     body Project Users:
      p
-     select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect() 
-          - client.projects.each do |project|
-           option value="#{project.uri}" #{project.title}    
+	 small #{@project_users}
      p
      input type="text" size="36" name="project" style="margin-left:0px"
 

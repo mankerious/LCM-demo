@@ -53,6 +53,6 @@ small{font-size:75%}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-.col-1of3 {width: 8.33%;}
-.col-2of3 {width: 16.66%;}
-.col-3of3 {width: 25%;}
+.col-1of2 {width: 66.66%;}
+.col-2of2 {width: 33.33%;}
+
