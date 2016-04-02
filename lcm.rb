@@ -3,8 +3,15 @@ require 'gooddata'
 require 'pp'
 require 'sinatra'
 require 'slim'
+require 'sinatra/base'
 
 # reference: http://www.sitepoint.com/just-do-it-learn-sinatra-i/
+  configure do
+    enable :logging
+    file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+    file.sync = true
+    use Rack::CommonLogger, file
+  end
 
 get '/' do 
 #	@project_list=""

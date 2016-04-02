@@ -1,26 +1,19 @@
 
 
+
 form action="/" method="POST" align="left"
   body  Master project: 
-  div class="row"
-    div class="col-1of3"
+  .row
      body #{@project_title}
      p
+     body Project ID:
      small data-toggle="tooltip" title="project id" #{@project_pid}
      p
-     select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect() 
-          - client.projects.each do |project|
-           option value="#{project.uri}" #{project.title}    
-     p
-     select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect() 
-          - client.projects.each do |project|
-           option value="#{project.uri}" #{project.title}    
-     p
-     input type="text" size="36" name="project" style="margin-left:0px"
+          - client = GoodData.connect()
+          - project = client.projects(@project_pid)
+     body Current project users:
+     small #{project.users.map {|u| [u.login, u.name]}}
 
-  div class="row"  
-    div class="col-3"       
-   	 input.button type="submit" value="Next >>" style="margin-left:5px"
+
+
 /*This uses the ‘=’ sign to evaluate a Ruby variable. Slim will output the result of whatever Ruby is placed after the ‘=’ sign*/
