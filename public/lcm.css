@@ -18,7 +18,7 @@ img {
 }
 
 a:focus{outline:none}
-h3{font-family: Verdana; color: red; font-size:1.17em;margin:1em 0;}
+h3{font-size:1.17em;margin:1em 0}
 h4{font-size:1em;margin:1.33em 0}
 h5{font-size:.83em;margin:1.67em 0}
 h6{font-size:.75em;margin:2.33em 0}
@@ -30,7 +30,7 @@ input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-w
 input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 
-small {color: red; font-size:100%}
+small {color: blue;font-size:100%}
 
 [class*="col-"] {
     float: left;

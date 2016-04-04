@@ -4,6 +4,8 @@ require 'pp'
 require 'sinatra'
 require 'slim'
 require 'sinatra/base'
+# A toolkit of support libraries and Ruby core extensions extracted from the Rails framework. Rich support for multibyte strings, internationalization, time zones, and testing.
+require 'active_support/all'
 
 # reference: http://www.sitepoint.com/just-do-it-learn-sinatra-i/
   configure do
