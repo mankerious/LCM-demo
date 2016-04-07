@@ -4,10 +4,8 @@ require 'pp'
 require 'sinatra'
 require 'slim'
 require 'sinatra/base'
-# A toolkit of support libraries and Ruby core extensions extracted from the Rails framework. Rich support for multibyte strings, internationalization, time zones, and testing.
 require 'active_support/all'
 
-# reference: http://www.sitepoint.com/just-do-it-learn-sinatra-i/
   configure do
     enable :logging
     file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
@@ -16,18 +14,12 @@ require 'active_support/all'
   end
 
 get '/' do 
-#	@project_list=""
-	#get a list of projects for this user and display them
-	# GoodData.with_connection() do |client|
- #    	client.projects.each do |project|
- #        	@project_list =  @project_list + project.title
- #    	end
-	# end
+
   slim :index 
 end
 
 
-post '/' do
+post '/project' do
 
  	if params[:project].to_s == ''
  		@project_pid = params[:projectid]
@@ -35,12 +27,12 @@ post '/' do
  		@project_pid = params[:project]
 	end
 
-	client = GoodData.connect()
+	client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
 	project = client.projects(@project_pid)
 	@project_title = project.title
+  @customer_name = params[:customer_name]
 
 
   	slim :project
 end
-
 

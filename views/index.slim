@@ -1,16 +1,22 @@
 /*the action attribute tells the form to submit itself to the url ‘/’ and the method attribute tells it to use the POST method.*/
-form action="/" method="POST" align="left"
-  body  Select master or enter project id 
-  div class="row"
-    div class="col-3"
+form action="/project" method="POST" align="left"
+
+  .row
+    .col-3
+     body  Customer Name: 
+     input type="text" size="36" name="customer_name" style="margin-left:0px"
+
+  .row
+    .col-3
+     body  Select project or enter id:
      p
      select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect() 
+          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
           - client.projects.each do |project|
            option value="#{project.uri}" #{project.title}    
      p
      input type="text" size="36" name="project" style="margin-left:0px"
 
-  div class="row"  
-    div class="col-3"       
+  .row  
+    .col-3       
    	 input.button type="submit" value="Next >>" style="margin-left:5px"
