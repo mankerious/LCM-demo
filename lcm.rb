@@ -1,6 +1,5 @@
 
 require 'gooddata'
-require 'pp'
 require 'sinatra'
 require 'slim'
 require 'sinatra/base'
@@ -13,13 +12,14 @@ require 'active_support/all'
     use Rack::CommonLogger, file
   end
 
+
+  
 get '/' do 
 
   slim :index 
 end
 
-
-post '/project' do
+post '/index' do
 
  	if params[:project].to_s == ''
  		$project_pid = params[:projectid]
@@ -30,8 +30,17 @@ post '/project' do
 	client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
 	project = client.projects($project_pid)
 	@project_title = project.title
-  $customer_name = params[:customer_name]
+    $customer_name = params[:customer_name]
+    
+	$target=params[:button]
+	if $target=="project"
+  	  slim :project
+  	else
+  	  slim :segments
+  	end
+end
 
+post '/project' do
 
   	slim :project
 end
@@ -47,4 +56,11 @@ post '/clone' do
         )     
 
     slim :clone
+end
+
+post '/segments' do
+
+  
+
+    slim :segments
 end
