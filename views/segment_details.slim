@@ -1,12 +1,12 @@
 
 
 
-form action="/segments" method="POST" align="left"
+form action="/segment_details" method="POST" align="left"
 
   .row
-     body Manage segments
+     body segment details
      p
-     body #{@customer_name}
+     body service segment id: #{$segment_id}
      p
      body Project ID:
      small data-toggle="tooltip" title="project id" #{$project_pid}

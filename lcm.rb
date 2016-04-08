@@ -1,9 +1,11 @@
 
 require 'gooddata'
+require 'goodot'
 require 'sinatra'
 require 'slim'
 require 'sinatra/base'
 require 'active_support/all'
+require_relative 'stuff'
 
   configure do
     enable :logging
@@ -33,9 +35,9 @@ post '/index' do
     $customer_name = params[:customer_name]
     
 	$target=params[:button]
-	if $target=="project"
+	if $target=="Clone Master"
   	  slim :project
-  	else
+  	elsif $target=="Manage Segments"
   	  slim :segments
   	end
 end
@@ -59,8 +61,13 @@ post '/clone' do
 end
 
 post '/segments' do
+	 
+	 @version='1.0.0'
+     client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+     @domain=client.domain('mustangs')
+     basic_master_project = client.projects($project_pid)
+	 @service_segment = create_or_get_segment(@domain, 'basic', basic_master_project, version: @version)
+	 $segment_id = @service_segment.id
 
-  
-
-    slim :segments
+    slim :segment_details
 end
