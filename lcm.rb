@@ -38,7 +38,7 @@ post '/index' do
 	if $target=="Clone Master"
   	  slim :project
   	elsif $target=="Manage Segments"
-  	  slim :segments
+  	  slim :segments  
   	end
 end
 
@@ -63,11 +63,26 @@ end
 post '/segments' do
 	 
 	 @version='1.0.0'
-     client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
-     @domain=client.domain('mustangs')
-     basic_master_project = client.projects($project_pid)
-	 @service_segment = create_or_get_segment(@domain, 'basic', basic_master_project, version: @version)
+   client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+   @domain=client.domain('mustangs')
+   basic_master_project = client.projects($project_pid)
+	 $segment_name=params[:segment_name]
+   @service_segment = create_or_get_segment(@domain, $segment_name, basic_master_project, version: @version)
 	 $segment_id = @service_segment.id
 
     slim :segment_details
 end
+
+post '/segment_details' do
+   
+   # @version='1.0.0'
+   # client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+   # @domain=client.domain('mustangs')
+   # master_project = client.projects($project_pid)
+   # @domain.remove_segment($segment_name)
+
+    slim :segment_details
+end
+
+
+
