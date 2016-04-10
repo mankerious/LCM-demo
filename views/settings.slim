@@ -1,0 +1,26 @@
+/*the action attribute tells the form to submit itself to the url ‘/project’ and the method attribute tells it to use the POST method.*/
+form action="/settings" method="POST" align="left"
+  br
+  br
+  .row
+     small Enter master project name &nbsp
+     input id="textinput" name="customer_name"
+     br
+     br
+     small  Select project or enter id:
+     br
+     select name="projectid" style="margin-left:0px" 
+          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          - client.projects.each do |project|
+           option value="#{project.pid}" #{project.title}    
+     a &nbsp
+     input id="textinput" name="project"
+     br
+     br
+   	 input.button type="submit" name="button" value="Clone Master" style="margin-left:5px"
+   	 input.button type="submit" name="button" value="Manage Segments" style="margin-left:5px"
+
+
+   	 
+
+ 

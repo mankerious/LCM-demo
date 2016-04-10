@@ -3,13 +3,16 @@
 
 form action="/segment_details" method="POST" align="left"
 
-  .row
-     p
-     body Segment: #{$segment_id}
-     p
+    .row
+        br
+        body Project: #{@project_pid}
+        br
+        body segment: #{@segment_name}
+        br
 
-  .row   
-    body Client Name: 
-    input type="text" size="36" name="client_name" style="margin-left:0px"
-    p
-    input.button type="submit" value="Create Clients" style="margin-left:5px"     
+    .row   
+        body Client Name: 
+
+        input type="text" size="36" name="client_name" style="margin-left:0px"
+        p
+        input.button type="submit" value="Create Clients" style="margin-left:5px"     
