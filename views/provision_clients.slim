@@ -1,0 +1,58 @@
+
+form action="/provision_clients" method="POST" align="left"
+
+  .row
+    .col-1of2
+     br
+     br
+     small.thick.completed  Step 1: Create Segments 
+     br
+     small.thick.completed  Step 2: Schedule Processes
+     br
+     small.thick  Step 3: Provision Clients
+     br
+     small.new  Step 4: Confirmation
+     br
+
+    .col-2of2
+     h3 Provision Clients
+     small.italic '#{@service_project.title}' service project successfully created!
+     / small.italic  service project successfully created!
+     <a href="https://mustangs.intgdc.com/admin/disc/#/projects/#{@service_project.pid}">(manage schedules)</a>
+     h4 Provision Client Workspaces
+     small Enter clients names and map to segments below:
+     br
+     br
+   	 input>  id="textinput" name="client_name1"
+     select name="segment_id1" style="margin-left:0px" 
+          <option value="" disabled selected>Select Segment..</option>
+           option  value="acme_basic" acme_basic
+           option  value="acme_premium" acme_premium
+     br
+     br
+     input>  id="textinput" name="client_name2"
+     select name="segment_id2" style="margin-left:0px" 
+          <option value="" disabled selected>Select Segment..</option>
+           option  value="acme_basic" acme_basic
+           option  value="acme_premium" acme_premium
+     br
+     br
+     input>  id="textinput" name="client_name3"
+     select name="segment_id3" style="margin-left:0px" 
+          <option value="" disabled selected>Select Segment..</option>
+           option  value="acme_basic" acme_basic
+           option  value="acme_premium" acme_premium
+     br
+     br
+     small or add more clients in bulk using 
+     small.blue CSV association  
+
+     br
+     hr style="border-top: dotted 1px;"
+  .row
+     button id="search-form" type="submit" Next
+     a href="http://localhost:4567" id="cancel" Cancel 
+
+
+
+

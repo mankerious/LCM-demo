@@ -13,9 +13,9 @@ def create_or_get_segment(domain, segment_name, master, options = {})
 end
 
 def set_master_metadata(master, version, segment)
-  set_lcm_version(master, version, force: true)
-  master.set_metadata(LCM_PROJECT_TYPE_KEY, LCM_MASTER_VALUE)
-  master.set_metadata(LCM_SEGMENT_KEY, segment)
+#  set_lcm_version(master, version, force: true)
+#  master.set_metadata(LCM_PROJECT_TYPE_KEY, LCM_MASTER_VALUE)
+#  master.set_metadata(LCM_SEGMENT_KEY, segment)
 end
 
 def create_or_get_client(segment, name)

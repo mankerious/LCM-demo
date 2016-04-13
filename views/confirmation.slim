@@ -1,0 +1,35 @@
+
+form action="/confirmation" method="POST" align="left"
+
+  .row
+    .col-1of2
+     br
+     br
+     small.thick.completed  Step 1: Create Segments 
+     br
+     small.thick.completed  Step 2: Schedule Processes
+     br
+     small.thick.completed  Step 3: Schedule Processes
+     br
+     small.thick  Step 4: Confirmation
+
+    .col-2of2
+     h3 Provision Clients
+     small.italic Client Workspaces successfully created!
+     br
+     small Project list:
+     select name="projectid" style="margin-left:0px" 
+          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          <option value="" disabled selected>Select one..</option>
+           option  value="basic blueprint" Create using Basic blueprint
+           option  value="premium blueprint" Create using Premium blueprint
+          - client.projects.each do |project|
+           option value="#{project.pid}" #{project.title} 
+
+  .row
+     button id="search-form" type="submit" Close
+     a href="http://localhost:4567" id="cancel" Cancel 
+
+
+
+

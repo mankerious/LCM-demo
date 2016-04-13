@@ -10,12 +10,19 @@ form action="/schedule_processes" method="POST" align="left"
      small.thick.completed  Step 1: Create Segments 
      br
      small.thick  Step 2: Schedule Processes
+     br
+     small.new  Step 3: Provision Clients
+     br
+     small.new  Step 4: Confirmation
+     br
     .col-2of2
      h3 Provision Clients
-     small.italic #{@segment_id} segment successfully created!
+     small.italic '#{@service_segment.id}' segment successfully created!
      br
-     small.italic master project successfully created! 
-     /*small.italic #{@master_project.title} successfully created!*/
+     small.italic master project 
+     small.italic href='https://mustangs.intgdc.com/#s=/gdc/projects/#{@master_project.pid}' '#{@master_project.title}'
+     small.italic< successfully created! 
+	 <a href="https://mustangs.intgdc.com/#s=/gdc/projects/#{@master_project.pid}">(details)</a>
 
      h4 Schedule Processes
      small  A service project will be created to automate data downloads, data preparation & your organization's user management
@@ -29,6 +36,9 @@ form action="/schedule_processes" method="POST" align="left"
      button id="search-form" type="submit" Next
      a href="http://localhost:4567" id="cancel" Cancel 
 
-
+  .row
+     .col-2
+     .col-3
+        img src="service_project.png" float="right"
 
 
