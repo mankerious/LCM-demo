@@ -1,0 +1,6 @@
+LOGIN = 'mustang@gooddata.com'
+PASSWORD = 'jindrisska'
+TOKEN = 'mustangs'
+DOMAIN = 'mustangs'
+FQDN = 'https://mustangs.intgdc.com'
+HOSTNAME = 'mustangs.intgdc.com'

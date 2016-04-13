@@ -1,0 +1,34 @@
+
+
+
+form action="/schedule_processes" method="POST" align="left"
+
+  .row
+    .col-1of2
+     br
+     br
+     small.thick.completed  Step 1: Create Segments 
+     br
+     small.thick  Step 2: Schedule Processes
+    .col-2of2
+     h3 Provision Clients
+     small.italic #{@segment_id} segment successfully created!
+     br
+     small.italic master project successfully created! 
+     /*small.italic #{@master_project.title} successfully created!*/
+
+     h4 Schedule Processes
+     small  A service project will be created to automate data downloads, data preparation & your organization's user management
+     br
+     br
+     small.thick.tabbed Service Project Name:&nbsp &nbsp 
+   	 input  id="textinput" name="service_project_name"
+     br
+     hr style="border-top: dotted 1px;"
+  .row
+     button id="search-form" type="submit" Next
+     a href="http://localhost:4567" id="cancel" Cancel 
+
+
+
+
