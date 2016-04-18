@@ -14,7 +14,7 @@ form action="/settings" method="POST" align="left"
       br
       small>>>  Master project:
       select name="master_project_id" style="margin-left:0px" 
-          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          - client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
           <option value="" disabled selected>Select one..</option>
           - client.projects.each do |project|
            option value="#{project.pid}" #{project.title}    
@@ -22,7 +22,7 @@ form action="/settings" method="POST" align="left"
       br
       small> Service Project:
       select name="service_project_id" style="margin-left:0px" 
-          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          - client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
           <option value="" disabled selected>Select one..</option>
           - client.projects.each do |project|
            option value="#{project.pid}" #{project.title}         

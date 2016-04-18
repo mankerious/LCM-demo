@@ -19,7 +19,7 @@ form action="/confirmation" method="POST" align="left"
      br
      small Project list:
      select name="projectid" style="margin-left:0px" 
-          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          - client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
           <option value="" disabled selected>Select one..</option>
            option  value="basic blueprint" Create using Basic blueprint
            option  value="premium blueprint" Create using Premium blueprint
