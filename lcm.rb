@@ -42,9 +42,9 @@ post '/index' do
 
         @client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
         @domain = @client.domain(DOMAIN)
-        @master_project = @client.create_project_from_blueprint(blueprint, auth_token: TOKEN)
+        $master_project = @client.create_project_from_blueprint(blueprint, auth_token: TOKEN)
 
-        load_process = redeploy_or_create_process(@master_project, './scripts/1.0.0/basic/load', name: 'load', type: :ruby)
+        load_process = redeploy_or_create_process($master_project, './scripts/1.0.0/basic/load', name: 'load', type: :ruby)
         load_schedule = redeploy_or_create_schedule(load_process, '0 * * * *', 'main.rb', {
           name: 'load',
           params: {
@@ -54,7 +54,7 @@ post '/index' do
         })
         load_schedule.disable!
 
-        filters_process = redeploy_or_create_process(@master_project, 'https://github.com/gooddata/app_store/tree/master/apps/user_filters_brick', {})
+        filters_process = redeploy_or_create_process($master_project, 'https://github.com/gooddata/app_store/tree/master/apps/user_filters_brick', {})
         filters_schedule = redeploy_or_create_schedule(filters_process, load_schedule, 'main.rb', {
           name: 'filters',
           params: {
@@ -71,7 +71,7 @@ post '/index' do
         })
         filters_schedule.disable!
 
-        add_users_process = redeploy_or_create_process(@master_project, 'https://github.com/gooddata/app_store/tree/master/apps/users_brick', {})
+        add_users_process = redeploy_or_create_process($master_project, 'https://github.com/gooddata/app_store/tree/master/apps/users_brick', {})
         add_users_schedule = redeploy_or_create_schedule(add_users_process, filters_schedule, 'main.rb', {
           name: 'users',
           params: {
@@ -84,7 +84,7 @@ post '/index' do
         })
         add_users_schedule.disable!
 
-        @service_segment = create_or_get_segment(@domain, params[:segment_name], @master_project, version: VERSION)
+        @service_segment = create_or_get_segment(@domain, params[:segment_name], $master_project, version: VERSION)
 
     elsif params[:projectid] == "premium blueprint"
         puts HighLine.color('premium blueprint selected', :blue)
@@ -177,11 +177,12 @@ end
 
 
 post '/provision_clients' do
-  
+
+   puts HighLine.color(#{$master_project.pid}, :green)
    @version='1.0.0'
    @client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
-   @domain=@client.domain('mustangs')
-   @segment = create_or_get_segment(@domain, params[:segment_id1], @master_project, version: @version)
+   @domain=@client.domain(DOMAIN)
+   @segment = create_or_get_segment(@domain, params[:segment_id1], $master_project, version: @version)
    create_or_get_client(@segment, params[:client_name1])
    create_or_get_client(@segment, params[:client_name2])
    create_or_get_client(@segment, params[:client_name3])
@@ -190,6 +191,8 @@ post '/provision_clients' do
 
   slim :confirmation
 end
+
+
 
 get '/confirmation' do
 

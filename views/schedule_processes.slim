@@ -18,9 +18,9 @@ form action="/schedule_processes" method="POST" align="left"
      small.italic '#{@service_segment.id}' segment successfully created!
      br
      small.italic master project 
-     small.italic href='https://mustangs.intgdc.com/#s=/gdc/projects/#{@master_project.pid}' '#{@master_project.title}'
+     small.italic href='https://mustangs.intgdc.com/#s=/gdc/projects/#{$master_project.pid}' '#{$master_project.title}'
      small.italic< successfully created! 
-	 <a href="https://mustangs.intgdc.com/#s=/gdc/projects/#{@master_project.pid}">(details)</a>
+	 <a href="https://mustangs.intgdc.com/#s=/gdc/projects/#{$master_project.pid}">(details)</a>
 
      h4 Schedule Processes
      small  A service project will be created to automate data downloads, data preparation & your organization's user management
