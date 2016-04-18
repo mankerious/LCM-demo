@@ -1696,3 +1696,11 @@
 ::1 - - [18/Apr/2016:17:46:50 -0400] "GET /service_project.png HTTP/1.1" 304 - 0.0016
 ::1 - - [18/Apr/2016:17:48:25 -0400] "POST /schedule_processes HTTP/1.1" 200 2456 19.8377
 ::1 - - [18/Apr/2016:17:54:17 -0400] "POST /provision_clients HTTP/1.1" 200 68559 340.2375
+::1 - - [18/Apr/2016:18:12:07 -0400] "GET / HTTP/1.1" 200 69081 7.1676
+::1 - - [18/Apr/2016:18:12:07 -0400] "GET /lcm.css HTTP/1.1" 304 - 0.0007
+::1 - - [18/Apr/2016:18:12:07 -0400] "GET /ABC_Retail.png HTTP/1.1" 304 - 0.0007
+::1 - - [18/Apr/2016:18:12:07 -0400] "GET /diagram_step1.png HTTP/1.1" 304 - 0.0004
+::1 - - [18/Apr/2016:18:14:27 -0400] "POST /index HTTP/1.1" 200 2063 45.3639
+::1 - - [18/Apr/2016:18:14:27 -0400] "GET /service_project.png HTTP/1.1" 304 - 0.0018
+::1 - - [18/Apr/2016:18:16:52 -0400] "POST /schedule_processes HTTP/1.1" 200 2456 19.2497
+::1 - - [18/Apr/2016:18:22:58 -0400] "POST /provision_clients HTTP/1.1" 200 68477 353.9228

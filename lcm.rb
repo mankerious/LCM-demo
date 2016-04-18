@@ -178,7 +178,6 @@ end
 
 post '/provision_clients' do
 
-   puts HighLine.color(#{$master_project.pid}, :green)
    @version='1.0.0'
    @client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
    @domain=@client.domain(DOMAIN)
