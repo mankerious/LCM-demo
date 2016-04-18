@@ -40,7 +40,7 @@ post '/index' do
           end
         end
 
-        @client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+        @client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
         @domain = @client.domain(DOMAIN)
         @master_project = @client.create_project_from_blueprint(blueprint, auth_token: TOKEN)
 
@@ -205,24 +205,19 @@ end
 
 post '/settings' do
 
-  if params[:project].to_s == ''
-    @project_pid = params[:projectid]
-  else
-    @project_pid = params[:project]
-  end
 
-  client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
-  project = client.projects(@project_pid)
-  @customer_name = params[:customer_name]
-  project= project.clone(
-          :title => "#{@customer_name} Master",
-          :with_data => true,
-          :auth_token => 'mustangs'
+  # client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+  # project = client.projects(@project_pid)
+  # @customer_name = params[:customer_name]
+  # project= project.clone(
+  #         :title => "#{@customer_name} Master",
+  #         :with_data => true,
+  #         :auth_token => 'mustangs'
 
-        )     
-  @project_title = project.title
+  #       )     
+  # @project_title = project.title
 
-  slim :clone
+  slim :index
 end
 
 

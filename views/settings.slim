@@ -3,23 +3,37 @@ form action="/settings" method="POST" align="left"
   br
   br
   .row
-     small Enter master project name &nbsp
-     input id="textinput" name="customer_name"
-     br
-     br
-     small  Select project or enter id:
-     br
-     select name="projectid" style="margin-left:0px" 
+
+    br
+    .col-1of2
+    .col-2of2
+      h4 Demo environment refresh
+      small> Segment name
+      input id="textinput" name="segment_name"
+      br
+      br
+      small>>>  Master project:
+      select name="master_project_id" style="margin-left:0px" 
           - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          <option value="" disabled selected>Select one..</option>
           - client.projects.each do |project|
            option value="#{project.pid}" #{project.title}    
-     a &nbsp
-     input id="textinput" name="project"
-     br
-     br
-   	 input.button type="submit" name="button" value="Clone Master" style="margin-left:5px"
-   	 input.button type="submit" name="button" value="Manage Segments" style="margin-left:5px"
-
+      br
+      br
+      small> Service Project:
+      select name="service_project_id" style="margin-left:0px" 
+          - client = GoodData.connect('mustang@gooddata.com', 'jindrisska', server: 'https://mustangs.intgdc.com', verify_ssl: false )
+          <option value="" disabled selected>Select one..</option>
+          - client.projects.each do |project|
+           option value="#{project.pid}" #{project.title}         
+      br
+      br
+      small> please note - the segment (plus all associated clients), master and service projects will be deleted when you click Submit    
+      br
+      hr style="border-top: dotted 1px;"
+  .row
+     button id="search-form" type="submit" Submit
+     a href="http://localhost:4567" id="cancel" Cancel 
 
    	 
 
