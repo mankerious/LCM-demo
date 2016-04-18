@@ -1,6 +1,0 @@
-LOGIN = 'se@gooddata.com'
-PASSWORD = ''
-TOKEN = ''
-DOMAIN = 'lcmdemo'
-FQDN = 'https://secure.gooddata.com'
-HOSTNAME = 'secure.gooddata.com'
