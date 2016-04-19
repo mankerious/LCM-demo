@@ -1,21 +1,33 @@
 
-form action="/confirmation" method="POST" align="left"
+form action="/index" method="POST" align="left"
 
   .row
-    .col-1of2
+    .col-1of3
      br
      br
-     small.thick.completed  Step 1: Create Segments 
+     small.new  Step 1: Define Data Product
      br
-     small.thick.completed  Step 2: Schedule Processes
+     small.new  Step 2: Activate Data Product
      br
-     small.thick.completed  Step 3: Provision Clients
+     small.new  Step 3: Provision Customers
      br
-     small.thick  Step 4: Confirmation
+     small.thick.active  Step 4: Confirm
+     br
 
+    .col-2of3
+     br
+     img src="ABC_Retail.png" float="left"
+    .col-3of3
+     h1 ABC Retail Store Analytics
+     hr style="border-top: dotted 1px;"
+     h2 CUSTOMER MANAGEMENT DASHBOARD
+  .row
+    .col-1of2
     .col-2of2
-     h3 Provision Clients
-     small.italic Client Workspaces successfully created!
+
+     h2 Confirmation
+     small.italic All customer projects have been successfully created!
+     br
      br
      small Project list:
      select name="projectid" style="margin-left:0px" 
@@ -25,7 +37,7 @@ form action="/confirmation" method="POST" align="left"
            option  value="premium blueprint" Create using Premium blueprint
           - client.projects.each do |project|
            option value="#{project.pid}" #{project.title} 
-
+      
   .row
      button id="search-form" type="submit" Close
      a href="http://localhost:4567" id="cancel" Cancel 
