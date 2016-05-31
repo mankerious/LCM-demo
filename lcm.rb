@@ -17,7 +17,9 @@ configure do
     use Rack::CommonLogger, file
 end
 
-
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
+GoodData.logger = logger
   
 get '/' do 
 
@@ -96,8 +98,8 @@ post '/index' do
       # RELEASE #
       ###########
 
-      # @domain.synchronize_clients
-      # @domain.provision_client_projects
+       #@domain.synchronize_clients
+       #@domain.provision_client_projects
 
       # DONE
       puts HighLine.color('DONE', :green)
@@ -190,10 +192,10 @@ post '/provision_clients' do
    create_or_get_client(@segment, params[:client_name1])
    create_or_get_client(@segment, params[:client_name2])
    create_or_get_client(@segment, params[:client_name3])
-#   @domain.synchronize_clients
-   puts HighLine.color($master_project.pid, :green)
-   @domain.provision_client_projects
    @domain.synchronize_clients
+   puts HighLine.color($master_project.pid, :green)
+   #@domain.provision_client_projects
+   #@domain.synchronize_clients
 
   slim :confirmation
 end
