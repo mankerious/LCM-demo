@@ -178,15 +178,22 @@ end
 
 post '/provision_clients' do
 
+
    @version='1.0.0'
    @client = GoodData.connect(LOGIN, PASSWORD, server: FQDN, verify_ssl: false )
    @domain=@client.domain(DOMAIN)
    @segment = create_or_get_segment(@domain, params[:segment_id1], $master_project, version: @version)
+#   puts HighLine.color(@client, :green)  
+#   puts HighLine.color(@domain, :green)  
+#   puts HighLine.color(@segment, :green)  
+#   puts HighLine.color($master_project, :green)  
    create_or_get_client(@segment, params[:client_name1])
    create_or_get_client(@segment, params[:client_name2])
    create_or_get_client(@segment, params[:client_name3])
-   @domain.synchronize_clients
+#   @domain.synchronize_clients
+   puts HighLine.color($master_project.pid, :green)
    @domain.provision_client_projects
+   @domain.synchronize_clients
 
   slim :confirmation
 end
